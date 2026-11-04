@@ -1,8 +1,10 @@
+using EventManagment.Repositories;
 using EventManagment.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddSingleton<IEventRepository, InMemoryEventRepository>();
 builder.Services.AddTransient<IEventService, EventService>();
 
 builder.Services.AddControllers();

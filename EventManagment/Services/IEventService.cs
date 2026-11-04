@@ -4,10 +4,10 @@ namespace EventManagment.Services
 {
     public interface IEventService
     {
-        public IEnumerable<Event> Get();
-        public Event? GetById(Guid id);
-        public bool Create(Event @event);
-        public bool Update(Event @event);
-        public bool DeleteById(Guid id);
+        IEnumerable<Event> Get();
+        Event? GetById(Guid id);
+        bool Create(Event @event);
+        bool Update(Event @event);
+        bool DeleteById(Guid id);
     }
 }
