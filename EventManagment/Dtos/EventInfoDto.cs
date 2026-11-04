@@ -1,7 +1,7 @@
 ﻿namespace EventManagment.Dtos
 {
     public record EventInfoDto(
-        string Id,
+        Guid Id,
         string Title,
         string? Description,
         DateTime StartAt,

@@ -14,6 +14,8 @@ namespace EventManagment.Services
 
         public bool Create(Event @event)
         {
+            ValidateEventDates(@event.StartAt, @event.EndAt);
+            @event.Id = Guid.NewGuid();
             return _eventRepository.Create(@event);
         }
 
@@ -34,7 +36,19 @@ namespace EventManagment.Services
 
         public bool Update(Event @event)
         {
+            ValidateEventDates(@event.StartAt, @event.EndAt);
             return _eventRepository.Update(@event);
+        }
+
+        private static void ValidateEventDates(DateTime startAt, DateTime endAt)
+        {
+            if (endAt <= startAt)
+            {
+                throw new ArgumentException(
+                    "Дата окончания должна быть позже даты начала",
+                    nameof(endAt)
+                );
+            }
         }
     }
 }
