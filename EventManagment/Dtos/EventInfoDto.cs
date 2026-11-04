@@ -1,6 +1,6 @@
 ﻿namespace EventManagment.Dtos
 {
-    public record EventDto(
+    public record EventInfoDto(
         string Id,
         string Title,
         string? Description,
